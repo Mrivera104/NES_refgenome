@@ -133,4 +133,4 @@ N50: 54.23 Mbp
 
 Notes
 > It looks like there was a duplication event in chromosome 4. Will email Merly to check this - could be interesting to follow up on if it is indeed a duplication event!
-> Can try to run tBLASTX to see what genes if any on chrom 4 this affects. May not have an affect at all do to gene regulation, but interesting nonetheless. 
+> Can try to run tBLASTX to see what genes if any on chrom 4 this affects. May not have an affect at all due to gene regulation, but interesting nonetheless. 
