@@ -60,6 +60,11 @@ RESULTS: [M::mm_idx_gen::46.180*1.58] collected minimizers
 
 > Assemblytics link: http://assemblytics.com/analysis.php?code=jIFPAW6kAGJlHlIjn3Vy
 > 
+> ![Mirounga Assemblytics Nchart](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/0f749f62-dbdc-442c-860a-fbe317c51e22)
+> ![Mirounga Assemblytics size_distributions all_variants 50-500](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/3b6485e5-b8f5-4236-aed3-680477f07bfa)
+> ![Mirounga Assemblytics size_distributions all_variants 500-50000](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/2e2b887b-103d-4f70-b152-ed9d075e356d)
+> ![Mirounga Assemblytics size_distributions all_variants log_all_sizes](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/6a467c8a-3c94-4258-93ca-ca8a5d885a1b)
+
 > Reference: CCGP N. elephant seal
 Number of sequences: 93
 Total sequence length: 2.39 Gbp
@@ -67,7 +72,6 @@ Mean: 25.74 Mbp
 Min: 14.15 Kbp
 Max: 215.94 Mbp
 N50: 154.17 Mbp
->![map_GCF_011800145 1_KU_Mleo_1 0_genomic_to_20230202 mMirAng1 NCBI hap1]
 
 > Query: Earth Biogenome S. elephant seal
 Number of sequences: 1,064
