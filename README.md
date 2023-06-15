@@ -1,14 +1,12 @@
 # eseal_CCGP
 analyses for the elephant seal CCGP ref genome paper 
 
-> on 06/15/2023, I took time with Rachel to run Minimap2 and look at assembly statistics and create delta plots to visualize alignment statistics. 
-> 
-> CCGP N. elephant seal sequence used: 20230202.mMirAng1.NCBI.hap1.fasta
-> 
+on 06/15/2023, I took time with Rachel to run Minimap2 and look at assembly statistics and create delta plots to visualize alignment statistics.  
+> CCGP N. elephant seal sequence used: 20230202.mMirAng1.NCBI.hap1.fasta 
 > S. elephant seal query sequence used: GCF_011800145.1_KU_Mleo_1.0_genomic.fna (Mirounga leonina reference on NCBI published by the Earth Biogenome project)
 
-> stats for 20230202.mMirAng1.NCBI.hap1.fasta (using assembly-stats)
-sum = 2430321998, n = 498, ave = 4880164.65, largest = 215935216
+stats for 20230202.mMirAng1.NCBI.hap1.fasta (using assembly-stats)
+> sum = 2430321998, n = 498, ave = 4880164.65, largest = 215935216
 N50 = 154172358, n = 7
 N60 = 144560927, n = 9
 N70 = 138646194, n = 10
@@ -18,8 +16,8 @@ N100 = 5350, n = 498
 N_count = 9800
 Gaps = 98
 
-> stats for GCF_011800145.1_KU_Mleo_1.0_genomic.fna (using assembly-stats)
-sum = 2417320305, n = 1115, ave = 2168000.27, largest = 111625095
+stats for GCF_011800145.1_KU_Mleo_1.0_genomic.fna (using assembly-stats)
+> sum = 2417320305, n = 1115, ave = 2168000.27, largest = 111625095
 N50 = 54232831, n = 16
 N60 = 38232912, n = 21
 N70 = 30109608, n = 28
@@ -29,9 +27,11 @@ N100 = 10003, n = 1115
 N_count = 15584573
 Gaps = 22850
 
-> MINIMAP2 SCRIPT ASM10: 
+MINIMAP2 SCRIPT ASM10: 
 > minimap2 -x asm10 --sam-hit-only 20230202.mMirAng1.NCBI.hap1.fasta.gz ncbi-genomes-2023-06-15  GCF_011800145.1_KU_Mleo_1.0_genomic.fna.gz > map_mleo_to_mang.paf
-RESULTS: [M::mm_idx_gen::46.180*1.58] collected minimizers
+
+RESULTS: 
+>[M::mm_idx_gen::46.180*1.58] collected minimizers
 [M::mm_idx_gen::53.060*1.76] sorted minimizers
 [M::main::53.060*1.76] loaded/built the index for 498 target sequence(s)
 [M::mm_mapopt_update::56.328*1.72] mid_occ = 103
@@ -46,20 +46,18 @@ RESULTS: [M::mm_idx_gen::46.180*1.58] collected minimizers
 [M::main] CMD: minimap2 -x asm10 --sam-hit-only 20230202.mMirAng1.NCBI.hap1.fasta.gz ncbi-genomes-2023-06-15 GCF_011800145.1_KU_Mleo_1.0_genomic.fna.gz
 [M::main] Real time: 362.353 sec; CPU: 879.507 sec; Peak RSS: 9.918 GB
 
-> MINIMAP2 SCRIPT ASM5: 
+MINIMAP2 SCRIPT ASM5: 
 > minimap2 -x asm5 --cs --sam-hit-only 20230202.mMirAng1.NCBI.hap1.fasta.gz ncbi-genomes-2023-06-15  GCF_011800145.1_KU_Mleo_1.0_genomic.fna.gz > map_mleo_to_mang_asm5.paf
 
-> D-genies link: https://dgenies.toulouse.inra.fr/result/mirounga1
->
+D-genies 
+>link: https://dgenies.toulouse.inra.fr/result/mirounga1
 > Summary of Identity: 
 >![summary_GCF_011800145 1_KU_Mleo_1 0_genomic_to_20230202 mMirAng1 NCBI hap1](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/40bc4026-bd87-439b-9641-0d251e0fa12d)
->
 > Delta plot: 
 > ![map_GCF_011800145 1_KU_Mleo_1 0_genomic_to_20230202 mMirAng1 NCBI hap1](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/63cad978-2068-40a2-aea4-9c08a192a341)
 
-
-> Assemblytics link: http://assemblytics.com/analysis.php?code=jIFPAW6kAGJlHlIjn3Vy
-> 
+Assemblytics 
+>link: http://assemblytics.com/analysis.php?code=jIFPAW6kAGJlHlIjn3Vy 
 > ![Mirounga Assemblytics Nchart](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/0f749f62-dbdc-442c-860a-fbe317c51e22)
 > ![Mirounga Assemblytics size_distributions all_variants 50-500](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/3b6485e5-b8f5-4236-aed3-680477f07bfa)
 > ![Mirounga Assemblytics size_distributions all_variants 500-50000](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/2e2b887b-103d-4f70-b152-ed9d075e356d)
@@ -80,3 +78,59 @@ Mean: 2.27 Mbp
 Min: 10.0 Kbp
 Max: 111.63 Mbp
 N50: 54.23 Mbp
+
+> Variant Summary Statistics: 
+> Insertion
+>                         Count       Total bp
+>        50-500 bp:      23197        3685854
+>     500-10,000 bp:       1965        3806300
+>  10,000-50,000 bp:         73        1397936
+>             Total:      25246        9698611
+
+
+> Deletion
+>                         Count       Total bp
+>         50-500 bp:      26874        5130283
+>     500-10,000 bp:       4323        9394087
+>  10,000-50,000 bp:        192        3758571
+>             Total:      31399       19092167
+
+> Tandem_expansion
+>                         Count       Total bp
+>         50-500 bp:         10           3116
+>     500-10,000 bp:          3          23515
+>  10,000-50,000 bp:         28         573931
+>             Total:         41         600562
+
+> Tandem_contraction
+>                         Count       Total bp
+>         50-500 bp:         17           3220
+>     500-10,000 bp:          3           2633
+>  10,000-50,000 bp:          1          10581
+>             Total:         21          16434
+
+> Repeat_expansion
+>                        Count       Total bp
+>         50-500 bp:       1246         224975
+>     500-10,000 bp:        902        2648649
+>  10,000-50,000 bp:         24         417998
+>             Total:       2172        3291622
+
+> Repeat_contraction
+                         Count       Total bp
+>         50-500 bp:       1543         312243
+>     500-10,000 bp:       1038        1726409
+>  10,000-50,000 bp:         30         733718
+>             Total:       2611        2772370
+
+> Total number of all variants: 61,490
+
+> Total bases affected by all variants: 35.47 Mbp
+
+> Total number of structural variants: 61,490
+
+> Total bases affected by structural variants: 35.47 Mbp
+
+Notes
+> It looks like there was a duplication event in chromosome 4. Will email Merly to check this - could be interesting to follow up on if it is indeed a duplication event!
+> Can try to run tBLASTX to see what genes if any on chrom 4 this affects. May not have an affect at all do to gene regulation, but interesting nonetheless. 
