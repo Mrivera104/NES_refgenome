@@ -11,10 +11,15 @@ check environments
 
 # installing packages 
 > conda instal bioconda::samtools
+> 
 > conda install bioconda::bcftools
+> 
 > conda install bioconda::gatk4
+> 
 > conda install bioconda::picard
 
 > samtools faidx /scratch1/migriver_CCGP/PSMC/refs/20230202.mMirAng1.NCBI.hap1.fasta
+output is: 20230202.mMirAng1.NCBI.hap1.fasta.fai
+
 
 
