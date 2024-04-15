@@ -11,30 +11,26 @@ I am currently making a repeat-masked version of my hap1 fasta file - I will be 
 I really hope one of these will work. I am crying ...
 
 # create conda environment 
->conda create --name eseal python=3.4
->activate eseal
+    conda create --name eseal python=3.4
+    activate eseal
 
-check environments 
->conda env list
->conda info
+# check environments 
+    conda env list
+    conda info
 
 # installing packages 
-> conda instal bioconda::samtools
-> 
-> conda install bioconda::bcftools
-> 
-> conda install bioconda::gatk4
-> 
-> conda install bioconda::picard
+    conda instal bioconda::samtools
+    conda install bioconda::bcftools
+    conda install bioconda::gatk4
+    conda install bioconda::picard
 
 # Create an index for our fasta file 
-> samtools faidx /scratch1/migriver_CCGP/PSMC/refs/20230202.mMirAng1.NCBI.hap1.fasta
+    samtools faidx /scratch1/migriver_CCGP/PSMC/refs/20230202.mMirAng1.NCBI.hap1.fasta
 
 output is: 20230202.mMirAng1.NCBI.hap1.fasta.fai
 
 # Mask repeats in our fasta file 
-
-> RepeatMasker -species mammals /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta 
+    RepeatMasker -species mammals /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta 
 
  had to install repeatmasker using conda because the base repeatmasker wasnt working ... thats fine
  
