@@ -29,8 +29,15 @@ check environments
 
 # Create an index for our fasta file 
 > samtools faidx /scratch1/migriver_CCGP/PSMC/refs/20230202.mMirAng1.NCBI.hap1.fasta
-> output is: 20230202.mMirAng1.NCBI.hap1.fasta.fai
 
+output is: 20230202.mMirAng1.NCBI.hap1.fasta.fai
+
+# Mask repeats in our fasta file 
+
+> RepeatMasker -species mammals /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta 
+
+ had to install repeatmasker using conda because the base repeatmasker wasnt working ... thats fine
+ 
 # Method 1
 1.) map my highest-coverage resequenced individual (QC'd using fastp) to the repeat-masked fasta
 
