@@ -11,8 +11,8 @@ I am currently making a repeat-masked version of my hap1 fasta file - I will be 
 I really hope one of these will work. I am crying ...
 
 # create conda environment 
->conda create --name elephantseal python=3.4
->activate elephantseal
+>conda create --name eseal python=3.4
+>activate eseal
 
 check environments 
 >conda env list
