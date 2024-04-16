@@ -38,7 +38,7 @@ output is: 20230202.mMirAng1.NCBI.hap1.fasta.fai
 1.) map my highest-coverage resequenced individual (QC'd using fastp) to the repeat-masked fasta
 
 fastp code used: 
->     eseal_fastp.sh
+>        eseal_fastp.sh
 
 # Method 2
 
