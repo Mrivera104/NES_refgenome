@@ -40,6 +40,9 @@ output is: 20230202.mMirAng1.NCBI.hap1.fasta.fai
 fastp code used: 
 >        eseal_fastp.sh
 
+2.) Align QC'd fastq files to repeat-masked fasta file and create a BAM file 
+>     minimap2 -ax sr -t 20 /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta.masked /scratch1/migriver_CCGP/fastp/A000303_A005_12C_S2_L004.fastp.R1.fastq.gz /scratch1/migriver_CCGP/fastp/A000303_A005_12C_S2_L004.fastp.R2.fastq.gz | samtools sort -@20 -O BAM -o A000303_eseal_sorted.bam -
+
 # Method 2
 
 
