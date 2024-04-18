@@ -9,8 +9,8 @@ OUTPUT_PREFIX="A000303_eseal"
 bcftools mpileup -Ou -f "$REFERENCE_FASTA" "$INPUT_BAM" | bcftools call -c -Ou | bcftools view -m2 -M2 -v snps -Oz -o "$OUTPUT_PREFIX.vcf.gz"
 
 # Step 2: Convert VCF to PSMC input format
-zcat "$OUTPUT_PREFIX.vcf.gz" | ./vcfutils.pl vcf2fq -d 4 -D 20 | gzip > "$OUTPUT_PREFIX.fq.gz"
-./fq2psmcfa -q20 -b100 -o "$OUTPUT_PREFIX.psmcfa" "$OUTPUT_PREFIX.fq.gz"
+zcat "$OUTPUT_PREFIX.vcf.gz" | vcfutils.pl vcf2fq -d 4 -D 20 | gzip > "$OUTPUT_PREFIX.fq.gz"
+psmc fq2psmcfa "$OUTPUT_PREFIX.psmcfa" "$OUTPUT_PREFIX.fq.gz"
 
 # Step 3: Run PSMC analysis
 psmc -N25 -t5 -r5 -p "4+25*2+4+6" -o "$OUTPUT_PREFIX.psmc" "$OUTPUT_PREFIX.psmcfa"
