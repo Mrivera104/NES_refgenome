@@ -46,6 +46,12 @@ fastp code used:
 Explanation:
 
 3.) Index the .BAM file using samtools 
+>        samtools index A000303_eseal_sorted.bam  A000303_eseal_sorted.bam.bai
+
+4.) Do variant calling and create an mpileup fastq file, then use that to run PSMC and output a figure
+>     run_psmc.sh
+
+It literally did not work. The figure is still all jacked up. I am in tears. Devastated. 
 
 # Method 2
 
