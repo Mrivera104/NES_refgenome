@@ -38,7 +38,9 @@ OR
 --> BY SCAFFOLD (1-17):
 TBD... 
 
+
 Heterozygosity estimation using R 
+
 I plugged in the generated est.ml file in R using the code found on the ANGSD wikipedia page: http://www.popgen.dk/angsd/index.php/Heterozygosity
 
       a<-scan("est.ml")
