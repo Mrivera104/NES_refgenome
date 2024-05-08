@@ -21,3 +21,13 @@ Options:
     -t 20: This specifies the number of threads or CPU cores to be used during the alignment process. In this case, it's set to 20, meaning the alignment process will utilize 20 CPU cores in parallel, which can speed up the alignment process significantly on multicore systems.
     -@ 20: This specifies the number of threads or CPU cores to be used by samtools sort. Similar to -t in minimap2, this sets the number of threads to 20.
 
+Sort the generated BAM file using samtools
+
+      samtools index SRR25478315_eseal_sorted.bam
+
+--> INCLUDE ALL SCAFFOLDS: 
+
+      angsd -P 10 -i /scratch1/migriver_CCGP/ncbi_dataset/omnic_mapfiles/SRR25478315_eseal_sorted.bam -anc /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta -dosaf 1 -gl 1 -C 50 -minQ 20 -minmapq 30 -out SRR25478315_eseal_angsdput -ref /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta
+      realSFS -nsites 200000 -fold 1 SRR25478315_eseal_angsdput.saf.idx > SRR25478315_eseal_est.ml
+
+--> BY SCAFFOLD (1-17):
