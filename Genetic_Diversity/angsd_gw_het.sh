@@ -9,9 +9,9 @@ output_directory="/scratch1/migriver_CCGP/avg_het"
 SAMPLE="SRR25478315"
 
 # Run ANGSD command
-angsd -P 10 -i ${input_bam_file} -anc ${ancestral_fasta_file} -dosaf 1 -gl 1 -C 50 -minQ 20 -minmapq 30 -fold 1 -out ${output_directory}/$SAMPLE -ref ${reference_fasta_file} -r
+angsd -P 10 -i ${input_bam_file} -anc ${ancestral_fasta_file} -dosaf 1 -gl 1 -out ${output_directory}/$SAMPLE -ref ${reference_fasta_file} -r
 
 # Run realSFS command
-realSFS -nsites 200000 ${output_directory}/$SAMPLE.saf.idx > ${output_directory}/$SAMPLE.est.ml
+realSFS  -fold 1 ${output_directory}/$SAMPLE.saf.idx > ${output_directory}/$SAMPLE.est.ml
 
 done
