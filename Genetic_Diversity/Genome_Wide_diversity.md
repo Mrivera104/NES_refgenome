@@ -45,3 +45,6 @@ I plugged in the generated est.ml file in R using the code found on the ANGSD wi
       a[2]/sum(a)
 
 The analysis worked! Using omni-c short read data I was able to get heterozygosity estimates in-line with resequenced individuals. YAY! Genome-wide heterozygosity was calculated at 0.000203. Very low! 
+
+
+![nucleotide_diversity](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/f2115608-5509-4911-ab60-4f9a793b547c)
