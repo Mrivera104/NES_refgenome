@@ -33,6 +33,12 @@ Sort the generated BAM file using samtools
 
 Options: 
 
+    -P 10: Specifies the number of threads or CPUs to use for the analysis. In this case, it sets it to 10 threads, which can speed up the analysis if you have multiple CPU cores available.
+    -i /scratch1/migriver_CCGP/ncbi_dataset/omnic_mapfiles/SRR25478315_eseal_sorted.bam: Specifies the input BAM file containing the aligned sequencing reads for analysis.
+    -anc /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta: Specifies the ancestral fasta file, which is used as the ancestral reference for certain analyses.
+    -dosaf 1: This option specifies that site allele frequencies should be calculated and outputted in SAF format. SAF (Site Allele Frequency) is a file format used for storing allele frequency information at each site in the genome.
+    -gl 1: Specifies the genotype likelihood model. In this case, it's using the SAMtools genotype likelihood model, which estimates genotype likelihoods based on sequencing data.
+    -fold 1: Specifies that folded SFS (Site Frequency Spectrum) should be calculated. The folded SFS combines allele frequencies of similar frequencies, useful for some population genetic analyses.
     
 OR
 
