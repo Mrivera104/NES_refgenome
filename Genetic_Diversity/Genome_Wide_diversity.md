@@ -27,8 +27,9 @@ Sort the generated BAM file using samtools
 
 --> INCLUDE ALL SCAFFOLDS: 
 
-    angsd -P 10 -i /scratch1/migriver_CCGP/ncbi_dataset/omnic_mapfiles/SRR25478315_eseal_sorted.bam -anc /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta -dosaf 1 -gl 1 -C 50 -minQ 20 -minmapq 30 -out SRR25478315_eseal_angsdput -ref /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta
-    realSFS -nsites 200000 -fold 1 SRR25478315_eseal_angsdput.saf.idx > SRR25478315_eseal_est.ml
+    angsd -P 10 -i /scratch1/migriver_CCGP/ncbi_dataset/omnic_mapfiles/SRR25478315_eseal_sorted.bam -anc /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta -dosaf 1 -gl 1 -out SRR25478315_eseal_angsdput -ref /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta
+    
+    realSFS -fold 1 SRR25478315_eseal_angsdput.saf.idx > SRR25478315_eseal_est.ml
     
 OR
 
