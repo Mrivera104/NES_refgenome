@@ -54,3 +54,18 @@ The analysis worked! Using omni-c short read data I was able to get heterozygosi
 
 
 # Method 2: Use omni-c data fastq files, QC-check fastq files using fastp, create a BAM file, then use that for genome-wide heterozygosity ANGSD analysis. 
+
+Use fastp to QC the fastq files downloaded from NCBI. 
+
+      bash run_fastp.sh
+
+Output files should be: 
+
+      SRR25478315.fastp.R1.fastq.gz
+      SRR25478315.fastp.R2.fastq.gz
+      
+Use Minimap2 for alignment of fastq files to reference genome. 
+
+    minimap2 -ax sr -t 20 /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta /scratch1/migriver_CCGP/ncbi_dataset/omnic_data/SRR25478315_1.fastq /scratch1/migriver_CCGP/ncbi_dataset/omnic_data/SRR25478315_2.fastq | samtools sort -@20 -O BAM -o SRR25478315_eseal_sorted.bam -
+
+
