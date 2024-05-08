@@ -30,6 +30,9 @@ Sort the generated BAM file using samtools
     angsd -P 10 -i /scratch1/migriver_CCGP/ncbi_dataset/omnic_mapfiles/SRR25478315_eseal_sorted.bam -anc /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta -dosaf 1 -gl 1 -out SRR25478315_eseal_angsdput -ref /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta
     
     realSFS -fold 1 SRR25478315_eseal_angsdput.saf.idx > SRR25478315_eseal_est.ml
+
+Options: 
+
     
 OR
 
@@ -43,8 +46,8 @@ Heterozygosity estimation using R
 
 I plugged in the generated est.ml file in R using the code found on the ANGSD wikipedia page: http://www.popgen.dk/angsd/index.php/Heterozygosity
 
-      a<-scan("est.ml")
-      a[2]/sum(a)
+    a<-scan("est.ml")
+    a[2]/sum(a)
 
 The analysis worked! Using omni-c short read data I was able to get heterozygosity estimates in-line with resequenced individuals. YAY! Genome-wide heterozygosity was calculated at 0.000203. Very low! 
 
@@ -57,16 +60,24 @@ The analysis worked! Using omni-c short read data I was able to get heterozygosi
 
 Use fastp to QC the fastq files downloaded from NCBI. 
 
-      bash run_fastp.sh
+    bash run_fastp.sh
 
 Output files should be: 
 
-      SRR25478315.fastp.R1.fastq.gz
-      SRR25478315.fastp.R2.fastq.gz
+    SRR25478315.fastp.R1.fastq.gz
+    SRR25478315.fastp.R2.fastq.gz
 The output files are a LOT smaller than the original fastq files O_o well... Anyways. (3G vs. ~60G)
 
 Use Minimap2 for alignment of fastq files to reference genome. 
 
-    minimap2 -ax sr -t 20 /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta /scratch1/migriver_CCGP/ncbi_dataset/omnic_data/SRR25478315_1.fastq /scratch1/migriver_CCGP/ncbi_dataset/omnic_data/SRR25478315_2.fastq | samtools sort -@20 -O BAM -o SRR25478315_eseal_sorted.bam -
+    minimap2 -ax sr -t 20 /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta /scratch1/migriver_CCGP/ncbi_dataset/omnic_mapfiles/SRR25478315.fastp.R1.fastq.gz /scratch1/migriver_CCGP/ncbi_dataset/omnic_mapfiles/SRR25478315.fastp.R2.fastq.gz | samtools sort -@20 -O BAM -o SRR25478315_eseal_fastp_sorted.bam -
 
+Sort the generated BAM file using samtools
 
+    samtools index SRR25478315_eseal_fastp_sorted.bam
+
+--> INCLUDE ALL SCAFFOLDS: 
+
+    angsd -P 10 -i /scratch1/migriver_CCGP/ncbi_dataset/omnic_mapfiles/SRR25478315_eseal_fastp_sorted.bam -anc /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta -dosaf 1 -gl 1 -out SRR25478315_eseal_angsdput -ref /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta
+    
+    realSFS -fold 1 SRR25478315_eseal_fastp_angsdput.saf.idx > SRR25478315_eseal_fastp_est.ml
