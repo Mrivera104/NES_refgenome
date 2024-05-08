@@ -36,3 +36,12 @@ OR
     bash angsd_gw_het.sh
       
 --> BY SCAFFOLD (1-17):
+TBD... 
+
+# Heterozygosity estimation using R 
+I plugged in the generated est.ml file in R using the code found on the ANGSD wikipedia page: http://www.popgen.dk/angsd/index.php/Heterozygosity
+
+      a<-scan("est.ml")
+      a[2]/sum(a)
+
+The analysis worked! Using omni-c short read data I was able to get heterozygosity estimates in-line with resequenced individuals. YAY! Genome-wide heterozygosity was calculated at 0.000203. Very low! 
