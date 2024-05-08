@@ -1,1 +1,1 @@
-Something will go here shortly :D
+Code journal for the n. elephant seal genome-wide heterozygosity cross-taxa comparison. 
