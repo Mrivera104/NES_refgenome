@@ -48,3 +48,7 @@ The analysis worked! Using omni-c short read data I was able to get heterozygosi
 
 
 ![nucleotide_diversity](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/f2115608-5509-4911-ab60-4f9a793b547c)
+
+
+
+# Method 2: Use omni-c data fastq files, QC-check fastq files using fastp, create a BAM file, then use that for genome-wide heterozygosity ANGSD analysis. 
