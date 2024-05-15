@@ -58,3 +58,12 @@ Here at the results from using RepeatMasker:
                                             
     run with rmblastn version 2.14.1+
     FamDB: CONS-Dfam_3.7
+
+
+I made a plot in R that is located in the Repeat_Content folder. This is what the figure looks like: 
+
+![Repeat_Element_Percentage](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/ab5e7ef5-0673-4181-b95f-fe32251c7594)
+
+
+
+
