@@ -64,6 +64,5 @@ I made a plot in R that is located in the Repeat_Content folder. This is what th
 
 ![Repeat_Element_Percentage](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/ab5e7ef5-0673-4181-b95f-fe32251c7594)
 
-
-
+Next steps: I want the percentages to show up on this figure but I have no clue how to make that happen without them being super compressed or not legable. I will figure it out :P
 
