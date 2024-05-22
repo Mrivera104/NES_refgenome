@@ -17,9 +17,16 @@ Create the variant call file
 
     rungatk HaplotypeCaller -I /scratch1/migriver_CCGP/ncbi_dataset/omnic_mapfiles/SRR25478315_eseal_sorted_reads_duplMarked_SM.bam -R /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta -ERC GVCF -O SRR25478315_eseal.g.vcf.gz
 
-# Step 2: 
-vcftools --gzvcf SRR25478315_eseal.g.vcf.gz --recode --out SRR25478315_eseal_HD_PASS_DP5_hetsites --maf 0.1
+# Step 2: Use VCFTools to calculate snp density 
 
-vcftools --vcf SRR25478315_eseal_HD_PASS_DP5_hetsites.recode.vcf --SNPdensity 1000000 --out SRR25478315_eseal_HD_PASS_DP5_hetsites
+Use VCFTools to call heterozygous sites
 
-awk -v sample="SRR2547831" 'NR==1{print $0"\tIndiv"} NR>1{print $0"\t"sample}' SRR25478315_eseal_HD_PASS_DP5_hetsites.snpden > SRR25478315_eseal_HD_PASS_DP5_hetsites_id.snpden
+    vcftools --gzvcf SRR25478315_eseal.g.vcf.gz --recode --out SRR25478315_eseal_HD_PASS_DP5_hetsites --maf 0.1
+
+Use VCFTools to calculate snp density of the called heterozygous sites using a sliding window approach 
+
+    vcftools --vcf SRR25478315_eseal_HD_PASS_DP5_hetsites.recode.vcf --SNPdensity 1000000 --out SRR25478315_eseal_HD_PASS_DP5_hetsites
+
+Transform the generated .snpden file into a human-readable file with appropriate headers 
+
+    awk -v sample="SRR2547831" 'NR==1{print $0"\tIndiv"} NR>1{print $0"\t"sample}' SRR25478315_eseal_HD_PASS_DP5_hetsites.snpden > SRR25478315_eseal_HD_PASS_DP5_hetsites_id.snpden
