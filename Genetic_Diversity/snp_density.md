@@ -30,3 +30,7 @@ Use VCFTools to calculate snp density of the called heterozygous sites using a s
 Transform the generated .snpden file into a human-readable file with appropriate headers 
 
     awk -v sample="SRR2547831" 'NR==1{print $0"\tIndiv"} NR>1{print $0"\t"sample}' SRR25478315_eseal_HD_PASS_DP5_hetsites.snpden > SRR25478315_eseal_HD_PASS_DP5_hetsites_id.snpden
+
+# Step 3: Visualize snp density by chromosome in R studio 
+
+
