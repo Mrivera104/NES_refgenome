@@ -33,4 +33,5 @@ Transform the generated .snpden file into a human-readable file with appropriate
 
 # Step 3: Visualize snp density by chromosome in R studio 
 
+![Mirounga_PB596 1Mb snpden](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/e469be02-fc2e-485a-9fe8-8eeaefa9eb1a)
 
