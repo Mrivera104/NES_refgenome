@@ -7,6 +7,12 @@ Before starting, let's make sure to properly download the files off NCBI using t
       
     fasterq-dump --split-file SRR25478315
 
+[07/11/2024] EDIT: Merly reminded me that I should have trimmed the Omni-C files before starting. OOOOOOOPS! Let me do that now...
+
+First, download TrimGalore! Conda package
+       
+    conda install bioconda::trim-galore
+
 I have two strategies for genome-wide heterozygosity: 
 
 # Method 1: Use omni-c data fastq files, create a BAM file, then use that for genome-wide heterozygosity ANGSD analysis. 
