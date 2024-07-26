@@ -1,11 +1,11 @@
-# Calculate repeat content and type for the northern elephant seal reference genome
+![image](https://github.com/user-attachments/assets/6b0f1941-f821-45bf-bcdc-afed80d052a2)# Calculate repeat content and type for the northern elephant seal reference genome
 I worked with Rachel to download RepeatModeler/RepetMasker and use that on the n. elephant seal genome. At first, I used this to mask repeats from the haplotype 1 reference genome fasta file. I wanted to use this repeat-masked file to then do all my subsequent analyses, but for some reason the mapping takes way longer. I decided to scrap the idea of creating bam files from the repeat-masked reference genome, but at least I can report on repeat content and type. 
 
 This is the code I used for repeat-masking: 
 
     RepeatMasker -species mammals /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta 
 
-Here at the results from using RepeatMasker: 
+Here at the results for M. angustirostris from using RepeatMasker: 
 
     ==================================================
     file name: 20230202.mMirAng1.NCBI.hap1.fasta
@@ -65,4 +65,8 @@ I made a plot in R that is located in the Repeat_Content folder. This is what th
 ![Repeat_Element_Percentage](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/ab5e7ef5-0673-4181-b95f-fe32251c7594)
 
 Next steps: I want the percentages to show up on this figure but I have no clue how to make that happen without them being super compressed or not legable. I will figure it out :P
+
+# Comparison of TE Content to Related Marine Mammal Species 
+I decided to do a TE content comparison to related species. WHOOPS! I decided to compare the NES to the following species: Mirounga Leonina	// Monachus schauinlandi // Phoca vitulina // Halichoerus grypus // Zalophus californianus // Enhydra lutris kenyoni // Ursus maritimus
+
 
