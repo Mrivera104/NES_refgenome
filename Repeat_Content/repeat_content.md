@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6b0f1941-f821-45bf-bcdc-afed80d052a2)# Calculate repeat content and type for the northern elephant seal reference genome
+# Calculate repeat content and type for the northern elephant seal reference genome
 I worked with Rachel to download RepeatModeler/RepetMasker and use that on the n. elephant seal genome. At first, I used this to mask repeats from the haplotype 1 reference genome fasta file. I wanted to use this repeat-masked file to then do all my subsequent analyses, but for some reason the mapping takes way longer. I decided to scrap the idea of creating bam files from the repeat-masked reference genome, but at least I can report on repeat content and type. 
 
 This is the code I used for repeat-masking: 
