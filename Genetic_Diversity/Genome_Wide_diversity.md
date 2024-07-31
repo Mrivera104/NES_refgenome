@@ -13,6 +13,10 @@ First, download TrimGalore! Conda package
        
     conda install bioconda::trim-galore
 
+Trim both fastq files before alignment
+
+    trim_galore -illumina /scratch1/migriver_CCGP/ncbi_dataset/omnic_data/SRR25478315_1.fastq /scratch1/migriver_CCGP/ncbi_dataset/omnic_data/SRR25478315_2.fastq -o SRR25478315_trimmed
+    
 I have two strategies for genome-wide heterozygosity: 
 
 # Method 1: Use omni-c data fastq files, create a BAM file, then use that for genome-wide heterozygosity ANGSD analysis. 
