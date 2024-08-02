@@ -12,4 +12,4 @@ When I first tried to align reads, I received this error:  [mem_sam_pe] paired r
 
 Align reads to fasta file and create a SAM file
 
-    bwa mem 20230202.mMirAng1.NCBI.hap1.fasta /scratch1/migriver_CCGP/trim_omnic/SRR25478315_trimmed/SRR25478315_1_trimmed.fq /scratch1/migriver_CCGP/trim_omnic/SRR25478315_trimmed/SRR25478315_2_trimmed.fq > SRR25478315_aligned_reads.sam
+    bwa mem 20230202.mMirAng1.NCBI.hap1.fasta /scratch1/migriver_CCGP/trim_omnic/SRR25478315_trimmed/SRR25478315_1_trimmed_fixed.fq /scratch1/migriver_CCGP/trim_omnic/SRR25478315_trimmed/SRR25478315_2_trimmed_fixed.fq > SRR25478315_aligned_reads.sam
