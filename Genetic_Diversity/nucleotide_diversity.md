@@ -6,10 +6,28 @@ First, we have to make sure to index our reference genome
 
     bwa index 20230202.mMirAng1.NCBI.hap1.fasta 
 
-When I first tried to align reads, I received this error:  [mem_sam_pe] paired reads have different names: "SRR25478315.9989", "SRR25478315.9990". This means that the paired-end fastq files don't have appropriate matching names and this discrepency makes alignment impossible. I did some research and found that I can use a tool from BBMap to deal with organizing the read names:
+# Proper trimming of Omni-C files 
+For Omni-C files, you need to properly trim bridge sequences used during library prep. More details here: https://omni-c.readthedocs.io/en/latest/assembly.html
 
-    repair.sh in1=SRR25478315_1_trimmed.fq in2=SRR25478315_2_trimmed.fq out1=SRR25478315_1_trimmed_fixed.fq out2=SRR25478315_2_trimmed_fixed.fq
+    cutadapt -j 16 \
+    -b GGTTCGTCCA \
+    -B GGTTCGTCCA \
+    -o SRR25478315_bridgetrim_R1.fastq \
+    -p SRR25478315_bridgetrim_R2.fastq \
+    /scratch1/migriver_CCGP/ncbi_dataset/omnic_data/SRR25478315_1.fastq \
+    /scratch1/migriver_CCGP/ncbi_dataset/omnic_data/SRR25478315_2.fastq
 
-Align reads to fasta file and create a SAM file
+# Align reads to fasta file and create a BAM file
+Now, we align the trimmed fastq files to the fasta file. 
 
-    bwa mem 20230202.mMirAng1.NCBI.hap1.fasta /scratch1/migriver_CCGP/trim_omnic/SRR25478315_trimmed/SRR25478315_1_trimmed_fixed.fq /scratch1/migriver_CCGP/trim_omnic/SRR25478315_trimmed/SRR25478315_2_trimmed_fixed.fq > SRR25478315_aligned_reads.sam
+    bwa mem -t 80 20230202.mMirAng1.NCBI.hap1.fasta \
+    /scratch1/migriver_CCGP/trim_omnic/SRR25478315_trimmed/SRR25478315_bridgetrim_R1.fastq \
+    /scratch1/migriver_CCGP/trim_omnic/SRR25478315_trimmed/SRR25478315_bridgetrim_R2.fastq \
+    > SRR25478315_bridgetrim_aligned_reads.sam
+Afterwards, we can convert the generated SAM file into a BAM file. This saves a lot of space! 
+
+    samtools view -bT 20230202.mMirAng1.NCBI.hap1.fasta SRR25478315_bridgetrim_aligned_reads.sam > SRR25478315_bridgetrim_sorted_aligned_reads.bam
+
+
+
+
