@@ -27,7 +27,18 @@ Now, we align the trimmed fastq files to the fasta file.
 Afterwards, we can convert the generated SAM file into a BAM file. This saves a lot of space! 
 
     samtools view -bT 20230202.mMirAng1.NCBI.hap1.fasta SRR25478315_bridgetrim_aligned_reads.sam > SRR25478315_bridgetrim_sorted_aligned_reads.bam
+We can now filter unmapped reads and keep only mapped reads in our BAM file. 
 
+    samtools view -h -F 4 -b SRR25478315_bridgetrim_sorted_aligned_reads.bam > SRR25478315_bridgetrim_sorted_only_mapped.bam 
+# Calculated nucleotide diversity 
+We can use ANGSD to calculate nucleotide diversity. Here is the explanation: "The heterozygosity is the proportion of heterozygous genotypes. This is in some sense encapsulated in the theta estimates." http://www.popgen.dk/angsd/index.php/Heterozygosity
+
+From ChatGPT: "The heterozygosity value provided by ANGSD can be interpreted as nucleotide diversity, reflecting the average genetic variation at the nucleotide level across the genome."
+
+    angsd -P 80 -i SRR25478315_bridgetrim_sorted_only_mapped.bam -anc 20230202.mMirAng1.NCBI.hap1.fasta -dosaf 1 -gl 1 -out SRR25478315_eseal_mapped_angsdput -C 50 -ref 20230202.mMirAng1.NCBI.hap1.fasta -minQ 20 -minmapq 30
+    realSFS -fold 1 -P 80 SRR25478315_eseal_mapped_angsdput.saf.idx > SRR25478315_eseal_mapped_est.ml
+
+Afterwards, we plug the est.ml file into RStudio and get this output: 0.0006324981
 
 
 
