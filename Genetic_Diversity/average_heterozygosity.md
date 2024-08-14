@@ -23,7 +23,7 @@ I decided to calculate average heterozygosity in more ways than just ANGSD, beca
 
 name it and run the script:
 
-    bash avg_heterozygosity.sh
+    bash avg_het.sh
 
 Doing this yielded these results: 
 
