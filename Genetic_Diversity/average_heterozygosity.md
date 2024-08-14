@@ -4,9 +4,9 @@ I decided to calculate average heterozygosity in more ways than just ANGSD, beca
     #!/bin/bash
 
     #Replace these with the actual file names
-    VCF_FILE="/pool/genomics/figueiroh/SMSC_2023_class/vcf/NN_6samples_HD_PASS_DP5.vcf.gz"
-    OUTPUT_FILE="NN_heterozygosity_v5.tsv"
-    GENOME_LENGTH=2468345093 #you can use the fasta index (.fai) to sum the total length of the genome
+    VCF_FILE="/scratch1/migriver_CCGP/trim_omnic/variant_call/SRR25478315_bridgetrim.g.vcf.gz"
+    OUTPUT_FILE="eseal_heterozygosity_v5.tsv"
+    GENOME_LENGTH=2430321998
 
     #Get a list of sample names from the VCF file
     SAMPLES=$(bcftools query -l $VCF_FILE)
@@ -30,3 +30,5 @@ Doing this yielded these results:
 Sample	Heterozygous_sites	Heterozygosity
 SRR25478315	537975	0.0002213
 ![image](https://github.com/user-attachments/assets/7c5df2be-a6ce-4458-8d16-1259560029ef)
+
+This value (average heterozygosity) is much lower than the values I got with ANGSD (genome-wide heterozygosity). I don't know what to make of this, tbh. 
