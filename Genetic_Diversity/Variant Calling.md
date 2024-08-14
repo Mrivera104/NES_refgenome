@@ -22,7 +22,10 @@ Before we proceed, we need to make sure that our fasta file and new bam file are
     gatk CreateSequenceDictionary -R=20230202.mMirAng1.NCBI.hap1.fasta -O=20230202.mMirAng1.NCBI.hap1.dict
     samtools faidx 20230202.mMirAng1.NCBI.hap1.fasta
     samtools index SRR25478315_bridgetrim_sorted_duplMarked_SM.bam 
+Now that we have those files situated, we can go ahead and perform the variant calling process using GATK. This will take a while, so be warned!
 
+    gatk HaplotypeCaller -I SRR25478315_bridgetrim_sorted_duplMarked_SM.bam -R 20230202.mMirAng1.NCBI.hap1.fasta -ERC GVCF -O SRR25478315_bridgetrim.g.vcf.gz
+And there you have it! :) yippee
 
 
 
