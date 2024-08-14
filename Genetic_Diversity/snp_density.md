@@ -3,35 +3,17 @@ I will be running an analysis to calculate snp density of the northern elephant 
 
 I will be utilizing a combination of GATK and VCFTool commands to call variants then use a sliding window approach to calculate overall snp density. (will reword this later) 
 
-# Step 1: Generate vcf file using GATK  
+# Use VCFTools to calculate snp density 
 
-The first step is to use GATK to mark duplicates from the alignment file. 
+I've already produced a VCF file using GATK, so now I'm going to use VCFTools to call heterozygous sites.
 
-    gatk AddOrReplaceReadGroups -I=SRR25478315_eseal_sorted_reads_duplMarked.bam -O=SRR25478315_eseal_sorted_reads_duplMarked_SM.bam -ID=1 -LB=lib1 -PL=ILLUMINA -PU=unit1 -SM=SRR25478315
-
-Index the duplicate marked bam file 
-
-    samtools index SRR25478315_eseal_sorted_reads_duplMarked_SM.bam
-    
-Create the variant call file 
-
-    rungatk HaplotypeCaller -I /scratch1/migriver_CCGP/ncbi_dataset/omnic_mapfiles/SRR25478315_eseal_sorted_reads_duplMarked_SM.bam -R /scratch1/migriver_CCGP/ncbi_dataset/20230202.mMirAng1.NCBI.hap1.fasta -ERC GVCF -O SRR25478315_eseal.g.vcf.gz
-
-# Step 2: Use VCFTools to calculate snp density 
-
-Use VCFTools to call heterozygous sites
-
-    vcftools --gzvcf SRR25478315_eseal.g.vcf.gz --recode --out SRR25478315_eseal_HD_PASS_DP5_hetsites --maf 0.1
+    vcftools --gzvcf SRR25478315_bridgetrim.g.vcf.gz --recode --out SRR25478315_bridgetrim_only_hetsites.recode.vcf --maf 0.1
 
 Use VCFTools to calculate snp density of the called heterozygous sites using a sliding window approach 
 
-    vcftools --vcf SRR25478315_eseal_HD_PASS_DP5_hetsites.recode.vcf --SNPdensity 1000000 --out SRR25478315_eseal_HD_PASS_DP5_hetsites
+    vcftools --vcf SRR25478315_bridgetrim_only_hetsites.recode.vcf --SNPdensity 1000000 --out SRR25478315_bridgetrim_only_1mb_hetsites
 
-Transform the generated .snpden file into a human-readable file with appropriate headers 
+# Visualize SNP Density by Chromosome in RStudio 
 
-    awk -v sample="SRR2547831" 'NR==1{print $0"\tIndiv"} NR>1{print $0"\t"sample}' SRR25478315_eseal_HD_PASS_DP5_hetsites.snpden > SRR25478315_eseal_HD_PASS_DP5_hetsites_id.snpden
 
-# Step 3: Visualize snp density by chromosome in R studio 
-
-![Mirounga_PB596 1Mb snpden](https://github.com/Mrivera104/eseal_CCGP/assets/97764650/e469be02-fc2e-485a-9fe8-8eeaefa9eb1a)
-
+![Mirounga_heterozygous SNP densities 1Mb snpden](https://github.com/user-attachments/assets/c3871f9b-67af-45b7-ae2e-c34f4b4c1fbe)
