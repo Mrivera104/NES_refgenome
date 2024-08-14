@@ -20,3 +20,13 @@ I decided to calculate average heterozygosity in more ways than just ANGSD, beca
     HETEROZYGOSITY=$(echo "scale=7; $HETEROZYGOUS / $GENOME_LENGTH" | bc)
     echo -e "$SAMPLE\t$HETEROZYGOUS\t$HETEROZYGOSITY" >> $OUTPUT_FILE
     done
+
+name it and run the script:
+
+    bash avg_heterozygosity.sh
+
+Doing this yielded these results: 
+
+Sample	Heterozygous_sites	Heterozygosity
+SRR25478315	537975	0.0002213
+![image](https://github.com/user-attachments/assets/7c5df2be-a6ce-4458-8d16-1259560029ef)
