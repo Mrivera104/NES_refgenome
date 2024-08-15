@@ -24,3 +24,9 @@ Step 6: Generate plots, including a PDF, with psmc_plot.pl
 
     psmc_plot.pl -g 10 -u 1e-8 -X 1000000 -Y 16 SRR25478315_bridgetrim_combined SRR25478315_bridgetrim_combined.psmc
 
+And this was the output! 
+
+![SRR25478315_bridgetrim_bootstrap_6x](https://github.com/user-attachments/assets/82e8b792-a0a1-4367-8323-7ccc6d6c97d9)
+
+Yay, makes sense to me! I trust this more than Hoelzel et al. 2024 tbh. 
+
