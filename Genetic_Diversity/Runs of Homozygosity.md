@@ -12,6 +12,15 @@ Once I have these things, I can read the file into R and output some neat stats.
        NROH     SROH      FROH
       <int>     <dbl>     <dbl>
        4952    454708179   18.7
+
+NROH - the # of ROH segments in the genome
+SROH - the total length of ROH segmenns in the genome in base pairs
+FROH - inbreeding coefficient (SROH/total length of genome) 
+
+I've also made a histogram to show the average size of ROH in the northern elephant seal genome: 
+
+![Mirounga ROH Distribution Plot](https://github.com/user-attachments/assets/6ec35b52-338a-44bb-9123-15850e51db91)
+
 Looks like FROH (inbreeding coefficient based on runs of homozygosity) is at 18.7%. This is expected, for the northern elephant seal, owing to their past history of overexploitation. Let's try another way of calculating ROH...
 
 
