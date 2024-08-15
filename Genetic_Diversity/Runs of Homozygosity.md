@@ -85,4 +85,15 @@ Number of ROH segments (NROH): 88
 Sum of ROH segment lengths (SROH): 21636591 bp
 Fraction of genome in ROH (FROH): 0.89%
 
+Here is the historgram of ROH distributions: 
+
+![Mirounga PLINK ROH Distribution Plot](https://github.com/user-attachments/assets/ac2c7408-a1a5-4a6f-8e9c-4b958019d3ec)
+
+Looks uglier than the BFCtools one :/ 
+
+PLINK also allowed me to plot ROH length by chromosome: 
+
+![Mirounga ROH Length by Chromosome Plot](https://github.com/user-attachments/assets/a78da517-652d-43a7-8961-d3f352bfd7d7)
+
+
 OK... MUCH lower than the BCFtools output. Still expected, in a way? Will have to discuss with people smarter than me on what's actually correct. For now... Such is life. 
