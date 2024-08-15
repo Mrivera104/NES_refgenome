@@ -36,11 +36,6 @@ Step 2: Run ROH analysis with appropriate settings
     plink --bfile eseal_bfile --allow-extra-chr --homozyg --homozyg-snp 50 --homozyg-kb 100 --homozyg-density 50 --homozyg-gap 1000 --homozyg-window-snp 50 --homozyg-window-het 1 --homozyg-window-missing 5 --homozyg-het 1 --homozyg-group --out eseal_roh
 As you can see, these settings are a lot more stringent. Here is what they mean (THANKS CHATGPT): 
 
-# Step 2: Run ROH (Runs of Homozygosity) analysis with appropriate settings
-
-# plink: the command-line tool used for whole-genome association analysis, including ROH detection.
-
-
     plink --bfile eseal_bfile \
       # --bfile: specifies the input binary fileset (BED, BIM, and FAM files) with the base name 'eseal_bfile'.
       
