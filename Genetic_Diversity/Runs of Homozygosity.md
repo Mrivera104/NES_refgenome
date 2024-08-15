@@ -23,4 +23,14 @@ I've also made a histogram to show the average size of ROH in the northern eleph
 
 Looks like FROH (inbreeding coefficient based on runs of homozygosity) is at 18.7%. This is expected, for the northern elephant seal, owing to their past history of overexploitation. Let's try another way of calculating ROH...
 
+# Calculating ROH using PLINK 
 
+Now I'm gonna pivot to using PLINK to run the same analysis and see what happens. PLINK utilizes variant called files (VCFs), and within these files we have information on genotypes and other variant information. To have gotten a VCF file, we could have put our original bam file through more strigent QC as part of the GATK pipeline, so we'll see how this affects our results. 
+
+Step 1: Convert VCF to PLINK format. PLINK needs files from VCFs formatted in a specific way (I need to do more research on what PLINK does...) 
+
+    plink --vcf /scratch1/migriver_CCGP/trim_omnic/variant_call/SRR25478315_bridgetrim.g.vcf.gz --allow-extra-chr  --make-bed --out eseal_bfile
+
+Step 2: Run ROH analysis with appropriate settings
+
+    plink --bfile eseal_bfile --allow-extra-chr --homozyg --homozyg-snp 50 --homozyg-kb 100 --homozyg-density 50 --homozyg-gap 1000 --homozyg-window-snp 50 --homozyg-window-het 1 --homozyg-window-missing 5 --homozyg-het 1 --homozyg-group --out eseal_roh
