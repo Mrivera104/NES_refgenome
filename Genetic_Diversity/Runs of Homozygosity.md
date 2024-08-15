@@ -34,3 +34,55 @@ Step 1: Convert VCF to PLINK format. PLINK needs files from VCFs formatted in a 
 Step 2: Run ROH analysis with appropriate settings
 
     plink --bfile eseal_bfile --allow-extra-chr --homozyg --homozyg-snp 50 --homozyg-kb 100 --homozyg-density 50 --homozyg-gap 1000 --homozyg-window-snp 50 --homozyg-window-het 1 --homozyg-window-missing 5 --homozyg-het 1 --homozyg-group --out eseal_roh
+As you can see, these settings are a lot more stringent. Here is what they mean (THANKS CHATGPT): 
+
+# Step 2: Run ROH (Runs of Homozygosity) analysis with appropriate settings
+
+# plink: the command-line tool used for whole-genome association analysis, including ROH detection.
+
+
+    plink --bfile eseal_bfile \
+      # --bfile: specifies the input binary fileset (BED, BIM, and FAM files) with the base name 'eseal_bfile'.
+      
+      --allow-extra-chr \
+      # --allow-extra-chr: allows the use of non-standard chromosome names, which might be necessary if your data includes scaffolds or non-human chromosomes.
+      
+      --homozyg \
+      # --homozyg: initiates the ROH analysis.
+      
+      --homozyg-snp 50 \
+      # --homozyg-snp 50: requires that each ROH must contain at least 50 SNPs to be considered valid.
+      
+      --homozyg-kb 100 \
+      # --homozyg-kb 100: requires that each ROH must span at least 100 kilobases (kb) in length to be considered valid.
+      
+      --homozyg-density 50 \
+      # --homozyg-density 50: specifies that within any ROH, there must be an average of at least one SNP every 50 kb.
+      
+      --homozyg-gap 1000 \
+      # --homozyg-gap 1000: allows a gap of up to 1000 kb (1 Mb) between consecutive SNPs in an ROH. If the gap between two SNPs exceeds this value, the ROH is broken.
+      
+      --homozyg-window-snp 50 \
+      # --homozyg-window-snp 50: the sliding window will analyze 50 SNPs at a time to check for homozygosity.
+      
+      --homozyg-window-het 1 \
+      # --homozyg-window-het 1: allows a maximum of 1 heterozygous SNP within the sliding window before it is excluded from the ROH.
+      
+      --homozyg-window-missing 5 \
+      # --homozyg-window-missing 5: allows up to 5 missing genotypes within the sliding window before it is excluded from the ROH.
+      
+      --homozyg-het 1 \
+      # --homozyg-het 1: allows at most 1 heterozygous SNP in the entire ROH for it to be considered valid.
+      
+      --homozyg-group \
+      # --homozyg-group: groups contiguous homozygous segments, ensuring they are considered as part of the same ROH.
+      
+      --out eseal_roh
+      # --out eseal_roh: specifies the base name for the output files, which will start with 'eseal_roh'.
+Cool, so now we have a HOM file we can pop into RStudio and get some stats from. 
+
+Number of ROH segments (NROH): 88 
+Sum of ROH segment lengths (SROH): 21636591 bp
+Fraction of genome in ROH (FROH): 0.89%
+
+OK... MUCH lower than the BCFtools output. Still expected, in a way? Will have to discuss with people smarter than me on what's actually correct. For now... Such is life. 
