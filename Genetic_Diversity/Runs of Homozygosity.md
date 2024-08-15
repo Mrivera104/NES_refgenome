@@ -25,7 +25,7 @@ Looks like FROH (inbreeding coefficient based on runs of homozygosity) is at 18.
 
 # Calculating ROH using PLINK 
 
-Now I'm gonna pivot to using PLINK to run the same analysis and see what happens. PLINK utilizes variant called files (VCFs), and within these files we have information on genotypes and other variant information. To have gotten a VCF file, we could have put our original bam file through more strigent QC as part of the GATK pipeline, so we'll see how this affects our results. 
+Now I'm gonna pivot to using PLINK to run the same analysis and see what happens.
 
 Step 1: Convert VCF to PLINK format. PLINK needs files from VCFs formatted in a specific way (I need to do more research on what PLINK does...) 
 
