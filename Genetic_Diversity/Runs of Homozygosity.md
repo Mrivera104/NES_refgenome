@@ -23,6 +23,8 @@ I've also made a histogram to show the average size of ROH in the northern eleph
 
 Looks like FROH (inbreeding coefficient based on runs of homozygosity) is at 18.7%. This is expected, for the northern elephant seal, owing to their past history of overexploitation. Let's try another way of calculating ROH...
 
+The percent of the NES genome in long runs of homozygosity (ROH >1Mbp) is 0.065%. Interesting! Low instances of recent inbreeding! 
+
 # Calculating ROH using PLINK 
 
 Now I'm gonna pivot to using PLINK to run the same analysis and see what happens.
