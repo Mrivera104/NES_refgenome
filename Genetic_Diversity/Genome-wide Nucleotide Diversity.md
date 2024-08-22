@@ -16,6 +16,15 @@ For Omni-C files, you need to properly trim bridge sequences used during library
     -p SRR25478315_bridgetrim_R2.fastq \
     /scratch1/migriver_CCGP/ncbi_dataset/omnic_data/SRR25478315_1.fastq \
     /scratch1/migriver_CCGP/ncbi_dataset/omnic_data/SRR25478315_2.fastq
+# Check trimmed fastq files with FastQC
+Let's check how our trimmed fastq files look like before we proceed!
+
+    fastqc SRR25478315_bridgetrim_R1.fastq SRR25478315_bridgetrim_R2.fastq
+    xdg-open SRR25478315_bridgetrim_R1.html
+    xdg-open SRR25478315_bridgetrim_R2.html
+
+
+
 
 # Align reads to fasta file and create a BAM file
 Now, we align the trimmed fastq files to the fasta file. 
@@ -30,6 +39,11 @@ Afterwards, we can convert the generated SAM file into a BAM file. This saves a 
 We can now filter unmapped reads and keep only mapped reads in our BAM file. 
 
     samtools view -h -F 4 -b SRR25478315_bridgetrim_sorted_aligned_reads.bam > SRR25478315_bridgetrim_sorted_only_mapped.bam 
+
+Let's check the coverage of our bam file!
+
+    samtools depth -a SRR25478315_bridgetrim_sorted_only_mapped.bam > coverage.txt
+    awk '{sum+=$3} END { print "Average coverage = ",sum/NR}' coverage.txt
 # Calculated nucleotide diversity 
 We can use ANGSD to calculate nucleotide diversity. Here is the explanation: "The heterozygosity is the proportion of heterozygous genotypes. This is in some sense encapsulated in the theta estimates." http://www.popgen.dk/angsd/index.php/Heterozygosity
 
