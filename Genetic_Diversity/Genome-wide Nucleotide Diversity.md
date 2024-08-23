@@ -40,10 +40,13 @@ We can now filter unmapped reads and keep only mapped reads in our BAM file.
 
     samtools view -h -F 4 -b SRR25478315_bridgetrim_sorted_aligned_reads.bam > SRR25478315_bridgetrim_sorted_only_mapped.bam 
 
+
 Let's check the coverage of our bam file!
 
     samtools depth -a SRR25478315_bridgetrim_sorted_only_mapped.bam > coverage.txt
     awk '{sum+=$3} END { print "Average coverage = ",sum/NR}' coverage.txt
+Coverage = 16.4X. IDK good enough I guess
+
 # Calculated nucleotide diversity 
 We can use ANGSD to calculate nucleotide diversity. Here is the explanation: "The heterozygosity is the proportion of heterozygous genotypes. This is in some sense encapsulated in the theta estimates." http://www.popgen.dk/angsd/index.php/Heterozygosity
 
