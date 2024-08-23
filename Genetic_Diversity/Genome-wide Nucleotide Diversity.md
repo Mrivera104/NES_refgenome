@@ -1,4 +1,4 @@
-# Genomw-Wide Diversity using Trimmed Omni-C Files
+# Genome-Wide Diversity using Trimmed Omni-C Files
 (08/02/2024) So after much deliberation, I have decided to trim my Omni-C files for use in downstream analyses. Let's hope this works out! I will be using BWA as my aligner moving forward. 
 
 # Alignment using BWA
