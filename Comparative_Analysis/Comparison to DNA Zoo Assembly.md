@@ -1,0 +1,2 @@
+# Comparison to DNA Zoo assembly 
+Today, for a final little addition to the already ginormagantuan reference genome paper, I am going to align our CCGP reference genome assembly to the last published northern elephant seal assemly published by the DNA Zoo. This will be done using minimap2 to create a PAF file, then that will get uploaded to the D-Genies website (https://dgenies.toulouse.inra.fr) to produce a synteny analysis and figure. 
