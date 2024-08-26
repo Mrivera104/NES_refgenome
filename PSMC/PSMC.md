@@ -34,7 +34,10 @@ Mutation rate of 6.7x10^-9 (https://www.nature.com/articles/s41559-020-1215-5)
 
 And this was the output! 
 
-![SRR25478315_bridgetrim_bootstrap_6x](https://github.com/user-attachments/assets/82e8b792-a0a1-4367-8323-7ccc6d6c97d9)
+![Screenshot 2024-08-26 144111](https://github.com/user-attachments/assets/80b450bb-d3ee-410d-91d3-8d8c8e6ca9bc)
+
+![Screenshot 2024-08-26 144219](https://github.com/user-attachments/assets/1a4ac5cd-9a1d-4a9a-9e07-2fb5069d51bc)
+
 
 Yay, makes sense to me! I trust this more than Hoelzel et al. 2024 tbh. 
 
