@@ -32,3 +32,12 @@ SRR25478315	537975	0.0002213
 ![image](https://github.com/user-attachments/assets/7c5df2be-a6ce-4458-8d16-1259560029ef)
 
 This value (average heterozygosity) is much lower than the values I got with ANGSD (genome-wide heterozygosity). I don't know what to make of this, tbh. 
+
+# Calculating Average Genome-Wide Heterozygosity using VCFtools 
+
+I will now do another calculation of genome-wide heterozygosity using VCFtools on scaffolds 1-17 ONLY. I will also do this in windows of 100Kb.
+
+    vcftools --gzvcf SRR25478315_bridgetrim_scaffolds_only.g.vcf.gz --window-pi 100000 --window-pi-step 100000 --out SRR25478315_scaffonly_het_output
+I went ahead and transferred that SRR25478315_scaffonly_het_output.windowed.pi into RStudio and wrote a script to visualize pi distributions across the 17 scaffolds only. This is what I got: 0.00023 
+
+I think I'll go ahead and go with this over ANGSD because it makes more sense, given RoH estimates and how variants were visualized across the genome. I'll rewrite this later that didn't make sense lol 
