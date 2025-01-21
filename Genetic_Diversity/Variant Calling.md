@@ -25,6 +25,10 @@ Before we proceed, we need to make sure that our fasta file and new bam file are
 Now that we have those files situated, we can go ahead and perform the variant calling process using GATK. This will take a while, so be warned!
 
     gatk HaplotypeCaller -I SRR25478315_bridgetrim_sorted_duplMarked_SM.bam -R 20230202.mMirAng1.NCBI.hap1.fasta -ERC GVCF -O SRR25478315_bridgetrim.g.vcf.gz
+Finally, we can filter by snp read depth and quality
+
+
+
 And there you have it! :) yippee
 
 
